@@ -1,2 +1,2 @@
-./data/test.jpg
-./data/test-european.jpg
+./data/receipt-ocr-example7.jpg
+./data/receipt-ocr-example8.jpeg

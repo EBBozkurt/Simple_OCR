@@ -1,23 +1,31 @@
 from PIL import Image
-
 import pytesseract
+
+#If you are using Windows client, go to link and download Tesseract-OCR https://github.com/UB-Mannheim/tesseract/wiki
 
 # If you don't have tesseract executable in your PATH, include the following:
 pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
 # Example tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract'
 
+# You can download languages -> https://github.com/tesseract-ocr/tessdata & C:\Program Files\Tesseract-OCR\tessdata paste it!
+# List of available languages
+print(pytesseract.get_languages(config=''))
 
-img = Image.open('data/receipt-ocr-example4.jpeg')
+
+img = Image.open('data/receipt-ocr-example8.jpeg')
 img.load()
-text = pytesseract.image_to_string(img, lang="eng")
-
+text = pytesseract.image_to_string(img, lang="tur")
 
 # Simple image to string
 print(text)
 
+# French text image to string
+# print(pytesseract.image_to_string(Image.open('data/test-european.jpg'), lang='fra'))
 
-# List of available languages
-print(pytesseract.get_languages(config=''))
+
+# Batch processing with a single file containing the list of multiple image file paths
+#print(pytesseract.image_to_string('data/images.txt'))
+
 
 
 
@@ -27,14 +35,7 @@ print(pytesseract.get_languages(config=''))
 # # NOTE: In this case you should provide tesseract supported images or tesseract will return error
 # print(pytesseract.image_to_string('data/test.png'))
 
-# # List of available languages
-# print(pytesseract.get_languages(config=''))
 
-# # French text image to string
-# # print(pytesseract.image_to_string(Image.open('data/test-european.jpg'), lang='fra'))
-
-# # Batch processing with a single file containing the list of multiple image file paths
-# print(pytesseract.image_to_string('data/images.txt'))
 
 # # Timeout/terminate the tesseract job after a period of time
 # try:
